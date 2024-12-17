@@ -1,0 +1,8 @@
+NTRIP: {
+  enable: 0,
+  ip: '',
+  port: 0,
+  username: '',
+  password: '',
+  mountpoint: 'AUTO'
+}

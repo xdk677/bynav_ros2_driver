@@ -1,0 +1,11 @@
+
+<library path="lib/libnovatel_oem7_driver">
+
+    <class name="bynav_ros_driver/Oem7MessageNodelet" type="bynav_ros_driver::Oem7MessageNodelet" base_class_type="nodelet::Nodelet">
+        <description>
+            Oem7 Message Nodelet.
+        </description>
+    </class>
+
+</library>
+

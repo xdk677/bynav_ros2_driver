@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>bynav_ros_driver</name>
+
+  <version>1.0.2</version>
+  <description>Bynav ROS Driver</description>
+
+  <maintainer email="bynav@bynav.com">Bynav Support</maintainer>
+
+  <license>MIT</license>
+
+  <url type="website">https://www.bynav.com</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  
+  <depend>pluginlib</depend>
+  <depend>boost</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_components</depend>
+  <depend>gps_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>nmea_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>novatel_oem7_msgs</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>geographiclib</depend>
+	  
+  <test_depend>launch_testing</test_depend>
+  <test_depend>launch_testing_ros</test_depend>
+  <test_depend>launch_testing_ament_cmake</test_depend> 
+  <test_depend>rosidl_runtime_py</test_depend>
+  <test_depend>rclpy</test_depend>
+  <test_depend>rosbag2</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+
+    <bynav_ros_driver plugin="${prefix}/bynav_ros_driver_plugins.xml" />
+  </export>
+</package>
