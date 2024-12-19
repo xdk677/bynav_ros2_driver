@@ -2,7 +2,7 @@
 <package format="3">
   <name>bynav_ros_driver</name>
 
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <description>Bynav ROS Driver</description>
 
   <maintainer email="bynav@bynav.com">Bynav Support</maintainer>

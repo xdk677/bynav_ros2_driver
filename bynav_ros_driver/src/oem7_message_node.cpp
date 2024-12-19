@@ -232,7 +232,7 @@ namespace bynav_ros_driver
 
       int8_t auth_retry_cnt = 3;
       while (auth_retry_cnt--) {
-        char buf[1024];
+        char buf[1024] = {0};
         int32_t ret = ntrip_cli_->RecvData(buf, sizeof(buf));
         if (ret == -1) {
           goto fail;
@@ -278,10 +278,14 @@ namespace bynav_ros_driver
 
         if (auth_status_ == NtripAuthStatus::kAuthFailed) {
           ntrip_cli_->DisconnectFromServer();
+          sleep(2);
           continue;
         }
 
         const auto& rtcm_data = ntrip_cli_->ReadAll();
+        if (!rtcm_data.empty()) {
+          RCLCPP_INFO_STREAM(get_logger(), "recv rtcm data: " << rtcm_data.size());
+        }
         if (!rtcm_data.empty() && recvr_) {
           recvr_->write(boost::asio::buffer(rtcm_data));
         }

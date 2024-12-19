@@ -10,8 +10,7 @@
 ```
 
 # 编译
-运行脚本文件
-```bash build.sh
+运行脚本文件 build.sh
 
 # 加载环境
 ```shell
