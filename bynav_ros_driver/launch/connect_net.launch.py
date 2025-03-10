@@ -46,9 +46,10 @@ def generate_launch_description():
                     {
                     'oem7_msg_decoder'   : 'Oem7MessageDecoder',
                     'oem7_max_io_errors' : 10,
-                    # 数据保存文件路径, 为空时不保存
+                    # Data storage file path. Leave it empty if you don't want to save the data.
                     'oem7_receiver_log'  : '',
-                    # 数据文件的最大大小， 超过该值时切换新文件保存, 单位为 MB, 设置为 0 则一直存放到一个文件中
+                    # The maximum size of the data file. When the file size exceeds this value, a new file will be used for saving. The unit is MB. Set it to 0 to keep saving to the same file.
+                    
                     'max_log_size'      : 100,
                     'oem7_if'                       : LaunchConfiguration('oem7_if'),
                     'oem7_ip_addr'                  : LaunchConfiguration('oem7_ip_addr'),
@@ -62,13 +63,13 @@ def generate_launch_description():
         output='screen',
     )
     
-    ip_arg   = arg('oem7_ip_addr', '127.0.0.1',  '组合导航设备的 ipv4 地址, 例如, 127.0.0.1')
-    port_arg = arg('oem7_port', '8888', '组合导航设备的端口, 比如 8888')
-    if_arg   = arg('oem7_if', 'Oem7ReceiverTcp', '选择连接方式, tcp 连接方式填写 Oem7ReceiverTcp, \
-                                                 udp 连接方式填写 Oem7ReceiverUdp, 默认是 tcp 连接方式')
-    imu_rate_arg = arg('imu_rate', '0', 'imu 原始数据频率')
-    imu_gyro_scale_factor_arg = arg('imu_gyro_scale_factor', '0.0', 'imu 陀螺仪原始数据比例因子, 单位为 °/s/LSB')
-    imu_accel_scale_factor_arg = arg('imu_accel_scale_factor', '0.0', 'imu 加速度计原始数据比例因子, 单位为 m/s2/LSB')
+    ip_arg   = arg('oem7_ip_addr', '127.0.0.1',  'The IPv4 address of the integrated navigation device, e.g., 127.0.0.1')
+    port_arg = arg('oem7_port', '8888', 'The port of the integrated navigation device, e.g., 8888')
+    if_arg   = arg('oem7_if', 'Oem7ReceiverTcp', 'Select the connection method. Enter Oem7ReceiverTcp for TCP connection, \
+                                                 enter Oem7ReceiverUdp for UDP connection. The default is TCP connection.')
+    imu_rate_arg = arg('imu_rate', '0', 'The frequency of raw IMU data')
+    imu_gyro_scale_factor_arg = arg('imu_gyro_scale_factor', '0.0', 'Scale factor for raw IMU gyroscope data, unit: °/s/LSB')
+    imu_accel_scale_factor_arg = arg('imu_accel_scale_factor', '0.0', 'Scale factor for raw IMU accelerometer data, unit: m/s²/LSB')
     
     return LaunchDescription([ip_arg,
                               port_arg,

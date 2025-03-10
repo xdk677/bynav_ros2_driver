@@ -1,41 +1,46 @@
-# 安装依赖
-运行脚本文件 install_dependencies.sh
-1. 在线安装
+#Install dependencies
+Run the script file install_dependencies.sh
+1. Online installation
 ```shell
 ./install_dependencies.sh online
 ```
-2. 离线安装
+2. Offline installation
 ```shell
 ./install_dependencies.sh offline
 ```
 
-# 编译
-运行脚本文件 build.sh
+# Compile
+Run the script file bash build.sh
 
-# 加载环境
+
+# Load the environment
+
 ```shell
 . install/setup.bash
 ```
 
-# 运行
-支持串口和网口两种通信方式
-1. 串口
+# Run
+It supports two communication methods: serial port and network port.
+1. Serial port
+
 ```shell
 ros2 launch bynav_ros_driver connect_port.launch.py
 ```
-2. 网口
+2. Network port
+
 ```shell
 ros2 launch bynav_ros_driver connect_net.launch.py
 ```
 
-在 launch 文件中可以修改串口和网口连接信息
+You can modify the serial port and network port connection information in the launch file.
 
-在config文件夹下的ntrip_parameters.yaml文件中可以启用ntrip和配置ntrip相关参数。
+You can enable NTRIP and configure NTRIP-related parameters in the ntrip_parameters.yaml file under the config folder.
 
-**注意：**
-1. 修改完源码中的配置文件后需要重新运行下脚本文件 build.sh
-2. 如果需要使用IMU的相关数据，那么使用前需要根据具体的IMU型号在 launch 文件中配置 IMU 频率以及 gyro 和 acc 的 scale
-3. 如果脚本文件无法执行，可以通过下面的指令增加可执行权限
+**Note:**
+1. After modifying the configuration files in the source code, you need to re-run the script file build.sh.
+2. If you need to use the relevant data of the IMU, you need to configure the IMU frequency and the scales of gyro and acc in the launch file according to the specific IMU model before use.
+3. If the script file cannot be executed, you can add executable permissions through the following command:
+
 ```shell
 chmod +x build.sh
 chmod +x install_dependencies.sh

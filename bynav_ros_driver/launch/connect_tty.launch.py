@@ -44,9 +44,9 @@ def generate_launch_description():
                     {
                     'oem7_msg_decoder'   : 'Oem7MessageDecoder',
                     'oem7_max_io_errors' : 3,
-                    # 数据保存文件路径, 为空时不保存
+                    # Data storage file path. Leave it empty if you don't want to save the data.
                     'oem7_receiver_log'  : '',
-                    # 数据文件的最大大小， 超过该值时切换新文件保存, 单位为 MB, 设置为 0 则一直存放到一个文件中
+                    # The maximum size of the data file. When the file size exceeds this value, a new file will be used for saving. The unit is MB. Set it to 0 to keep saving to the same file.
                     'max_log_size'      : 100,
                     'oem7_if'                       : 'Oem7ReceiverPort',
                     'oem7_port_name'                : LaunchConfiguration('oem7_port_name'),
@@ -60,13 +60,13 @@ def generate_launch_description():
         output='screen'
     )
 
-    imu_rate_arg = arg('imu_rate', '0', 'imu 原始数据频率')
-    imu_gyro_scale_factor_arg = arg('imu_gyro_scale_factor', '0.0', 'imu 陀螺仪原始数据比例因子, 单位为 °/s/LSB')
-    imu_accel_scale_factor_arg = arg('imu_accel_scale_factor', '0.0', 'imu 加速度计原始数据比例因子, 单位为 m/s2/LSB')
+    imu_rate_arg = arg('imu_rate', '0', 'IMU raw data frequency')
+    imu_gyro_scale_factor_arg = arg('imu_gyro_scale_factor', '0.0', 'Scale factor for raw IMU gyroscope data, unit: °/s/LSB')
+    imu_accel_scale_factor_arg = arg('imu_accel_scale_factor', '0.0', 'Scale factor for raw IMU accelerometer data, unit: m/s²/LSB')
     
     return LaunchDescription([
-                             arg('oem7_port_name', '/dev/ttyUSB0',  '组合导航串口名称, 例如 /dev/ttyUSB0'), 
-                             arg('oem7_port_baud', '115200',  '组合导航串口波特率, 例如 115200'), 
+                             arg('oem7_port_name', '/dev/ttyUSB0',  'Integrated navigation serial port name, e.g., /dev/ttyUSB0'), 
+                             arg('oem7_port_baud', '115200',  'Integrated navigation serial port baud rate, e.g., 115200'), 
                              imu_rate_arg,
                              imu_gyro_scale_factor_arg,
                              imu_accel_scale_factor_arg,

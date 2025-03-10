@@ -1,5 +1,5 @@
 NTRIP: {
-  enable: 0,
+  enable: 0, # 0: Disable, 1: Enable
   ip: '',
   port: 0,
   username: '',
